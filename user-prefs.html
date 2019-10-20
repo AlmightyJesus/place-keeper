@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>User-Prefs</title>
+</head>
+
+<body class="prefs-body">
+    <header>
+    </header>
+    <main class="prefs-main">
+        <fieldset class="top-fieldset">
+            <legend class="user-prefs-legend">User Preferences</legend>
+            <form onsubmit="onSubmitForm(event)">
+                <label for="bcg-color">Choose background color</label>
+                <input onchange="onInputChange()" class="bcg-color" id="bcg-color" type="color"><br><br>
+                <label for="txt-color">Choose text color</label>
+                <input onchange="onInputChange()" class="txt-color" id="txt-color" type="color"> <br><br>
+                <button class="prefs-btn set-colors-btn" onclick="onSetPrefs()">Set Information</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend class="forecast-legend">Get Astological Forcast!</legend>
+            <form onsubmit="onSubmitForm(event)">
+                <label for="birth-date">Insert birth date</label>
+                <input class="birth-date" id="birth-date" type="date"> <br><br>
+                <label for="birth-time">Insert birth time</label>
+                <input class="birth-time" id="birth-time" type="time"> <br><br>
+                <button class="prefs-btn set-birth-info" onclick="onInfoSubmit()">Get Forecast!</button>
+            </form>
+        </fieldset>
+        <section class="forecast">
+            <h2 class="forecast-txt hide"></h2>
+            <img class="forecast-img img-hide" src="img/horoscope.jpg">
+        </section>
+    </main>
+    <footer>
+        <p>© All right reserved to the LAWD AND SAVIOR</p>
+        <aside>
+            <a class="footer-link" href="index.html">Go To Homepage</a>
+            <a class="footer-link" href="map.html">Go To Map</a>
+        </aside>
+        
+    </footer>
+    <script src="js/utilService.js"></script>
+    <script src="js/userPrefService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/place-k-Controller.js"></script>
+</body>
+
+</html>

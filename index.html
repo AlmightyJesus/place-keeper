@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Place-Keeper</title>
+</head>
+
+<body onload="initHomepage()" class="homepage">
+    <video autoplay muted loop class="earth-vid">
+        <source src="vid/earth.mp4" type="video/mp4">
+    </video>
+    <header class="homepage-header">
+        <h1>Hello and welcome to the map</h1>
+    </header>
+    <main class="homepage-main">
+        <section class="page-links-container">
+            <a class="page-link" href="user-prefs.html" target="_blank">User Prefs</a>
+            <a class="page-link" href="map.html" target="_blank">Map</a>
+
+        </section>
+        <button class="vid-btn" onclick="toggleVideo()">Pause</button>
+    </main>
+    <footer>
+        <p>© All right reserved to the LAWD AND SAVIOR</p>
+        <aside>
+            <a class="footer-link" href="user-prefs.html">Go To User - Prefs</a>
+            <a class="footer-link" href="map.html">Go To Map</a>
+        </aside>
+    </footer>
+    <script src="js/utilService.js"></script>
+    <script src="js/userPrefService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/place-k-Controller.js"></script>
+</body>
+
+</html>

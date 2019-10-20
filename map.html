@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Map</title>
+</head>
+
+<body onload="initMapPage()">
+    <header>
+        <h1 class="map-header">Where you at?</h1>
+    </header>
+    <main class="map-main">
+        <div class="map-container">
+            <div id="map"></div>
+            <button class="my-loc" onclick="onSetCurrLoc()"><img src="img/my-location.png"></button>
+            <button class="map-btn toggle-all-btn" onclick="toggleMarkers()">Hide Markers</button>
+            <button class="map-btn delete-all-btn" onclick="deleteMarkers()">Delete Markers</button>
+        </div>
+        <section class="markers-container">
+            <form onsubmit="onSubmitForm(event)" class="marker-name">
+                <input class="marker-name-input" type="text" placeholder="Marker's Name">
+                <button class="marker-name-btn" onclick="onAddMarkerName()">Add</button>
+            </form>
+            <ul class="markers"></ul>
+        </section>
+    </main>
+    <article>
+        <h2 class="locationError"></h2>
+    </article>
+    <footer>
+        <p>© All right reserved to the LAWD AND SAVIOR</p>
+        <aside>
+            <a class="footer-link" href="index.html">Go To Homepage</a>
+            <a class="footer-link" href="user-prefs.html">Go To User - Prefs</a>
+        </aside>
+
+    </footer>
+    <!-- api key -->
+    <!-- AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4 -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4&callback=initMap">
+        </script>
+    <script src="js/utilService.js"></script>
+    <script src="js/userPrefService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/place-k-Controller.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Map</title>
+</head>
+
+<body>
+    <header>
+        <h1>Map</h1>
+    </header>
+    <!-- api key -->
+    <!-- AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4 -->
+    <!-- try to put map in another div and put the button inside aswell with position relative -->
+    <div id="map"></div>
+    <button class="my-loc" onclick="onSetCurrLoc()"><img src="img/my-location.png"></button>
+    <article>
+        <h3 class="locationError"></h3>
+    </article>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4&callback=initMap">
+        </script>
+    <script src="js/utilService.js"></script>
+    <script src="js/userPrefService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/place-k-Controller.js"></script>
+</body>
+
+</html>

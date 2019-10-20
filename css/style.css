@@ -1,11 +1,9 @@
-body {
-    background: linear-gradient(to right, #94cdb8, #f88bc7);
+html {
+    font-family: Roboto, Arial, sans-serif;
 }
 
-#map {
-    height: 50%;
-    width: 70%;
-    margin: 0 auto;
+body {
+    background: linear-gradient(to right, #94cdb8, #f88bc7);
 }
 
 html, body {
@@ -14,24 +12,353 @@ html, body {
     padding: 0;
 }
 
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(84, 149, 139, 0.513);
+}
+
+.footer-link {
+    text-decoration: none;
+    border: 2px solid rgba(36, 36, 36, 0.87);
+    border-radius: 5px;
+    padding: 5px;
+    transition: .3s all;
+}
+
+.footer-link:last-child {
+    margin-left: 20px;
+}
+
+.footer-link:hover {
+    background-color: rgba(219, 219, 219, 0.589);
+}
+
+.footer-link:visited {
+    color: black;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "RobotoItalic";
+    src: url("../fonts/Roboto/Roboto-Italic.ttf");
+    font-weight: italic;
+}
+
+@font-face {
+    font-family: "Xiao";
+    src: url("../fonts/Xiao/ZCOOLXiaoWei-Regular.ttf");
+    font-weight: bold;
+}
+
+/* ----index page---- */
+
 .homepage {
     background: none;
 }
 
-.my-loc{
+.homepage-header {
+    background-color: rgba(195, 188, 176, 0.692);
+    height: 10%;
+    text-align: center;
+    line-height: 90px;
+    top: 0;
+}
+
+.homepage-header h1 {
+    font-family: RobotoItalic;
+    font-size: 50px;
+}
+
+.homepage-main {
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    background-color: rgba(195, 188, 176, 0.692);
+    text-align: center;
+    bottom: 50px;
+}
+
+.page-links-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.page-link {
+    text-decoration: none;
+    border: 2px solid rgba(36, 36, 36, 0.87);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgba(226, 226, 226, 0.692);
+    transition: .3s all;
+
+}
+
+.page-link:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.page-link:hover{
+    background-color: rgba(253, 253, 253, 0.781);
+
+}
+
+.vid-btn {
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(195, 188, 176);
+    height: 35px;
+    font-size: 22px;
+    border-style: hidden;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 3px 3px 14px 2px rgba(112, 108, 112, 1);
+}
+
+.vid-btn:active {
+    box-shadow: 7px 7px 14px 2px rgba(112, 108, 112, 1);
+}
+
+.earth-vid {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+/* ----user prefs---- */
+
+.prefs-btn {
+    background-color: rgb(246, 206, 187);
+    height: 35px;
+    font-size: 22px;
+    border-style: hidden;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 3px 3px 14px 2px rgba(112, 108, 112, 1);
+    margin-bottom: 5px;
+}
+
+.prefs-btn:active {
+    box-shadow: 7px 7px 14px 2px rgba(112, 108, 112, 1);
+}
+
+.prefs-body {
+    height: 100vh;
+}
+
+.prefs-main {
+    text-align: center;
+    font-size: 18px;
+}
+
+fieldset {
+    margin: 0 auto;
+    width: 85%;
+    border-color: honeydew;
+    margin-top: 15px;
+    padding: 5px;
+}
+
+.top-fieldset {
+    margin-top: 5px;
+}
+
+legend {
+    margin: 20px;
+    font-size: 35px;
+}
+
+.forecast {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.forecast-txt {
+    font-family: Xiao, Roboto, Arial, sans-serif;
+    font-size: 35px;
+    transition: opacity 2s;
+    margin: 10px 0;
+}
+
+.forecast-img {
+    transition: transform 2.5s ease-in-out;
+    width: 50%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.img-hide {
+    transform: translate(0px, 800px);
+}
+
+/* ----map pag---- */
+
+.map-main {
+    margin-top: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.map-container {
+    height: 80%;
+    width: 50%;
+    position: relative;
+    border: 2px solid rgb(204, 210, 220);
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.map-header{
+    line-height: 0;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.my-loc {
     background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
     border-radius: 2px;
+    border-width: .5px;
     width: 40px;
     height: 40px;
     position: absolute;
-    z-index: 9999999999999999;
+    z-index: 99999999999;
     outline: none;
-}
-.my-loc img{
-width: 100%;
-object-fit: cover;
+    bottom: 35px;
+    left: 10px;
 }
 
-.locationError{
+.map-btn {
+    display: table-cell;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    border-radius: 2px;
+    border-width: .5px;
+    position: absolute;
+    z-index: 99999999999;
+    outline: none;
+    left: 10px;
+    width: 140px;
+    font-size: 18px;
+    height: 41px;
+    color: rgb(86, 86, 86);
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.toggle-all-btn {
+    top: 100px;
+}
+
+.delete-all-btn {
+    top: 150px;
+}
+
+.my-loc img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.locationError {
+    position: absolute;
+    width: 100%;
+    top: 23px;
+    text-align: center;
     color: red;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.markers-container {
+    height: 80%;
+    width: 30%;
+    background-color: rgb(230, 230, 230);
+    border: 2px solid rgb(204, 210, 220);
+}
+
+.markers {
+    height: 95%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.markers li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-top: 2px solid rgba(153, 153, 153, 0.685);
+}
+
+.markers li:hover {
+    background-color: rgba(214, 214, 214, 0.637);
+}
+
+.remove-btn {
+    border-radius: 20px;
+    background-color: rgba(193, 231, 225, 0.63);
+    outline: none;
+    box-shadow: none;
+    border: 2px solid rgb(202, 202, 202);
+    font-weight: bold;
+}
+
+.remove-btn:hover {
+    background-color: rgba(145, 167, 163, 0.63);
+}
+
+.marker-name {
+    height: 4%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.marker-name-input {
+    height: 80%;
+    width: 70%;
+    padding: 0;
+}
+
+.marker-name-input:focus {
+    border-color: red;
+}
+
+.marker-name-btn {
+    height: 90%;
+    width: 20%;
 }

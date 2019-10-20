@@ -9,18 +9,38 @@
     <title>Map</title>
 </head>
 
-<body>
+<body onload="initMapPage()">
     <header>
-        <h1>Map</h1>
+        <h1 class="map-header">Where you at?</h1>
     </header>
+    <main class="map-main">
+        <div class="map-container">
+            <div id="map"></div>
+            <button class="my-loc" onclick="onSetCurrLoc()"><img src="img/my-location.png"></button>
+            <button class="map-btn toggle-all-btn" onclick="toggleMarkers()">Hide Markers</button>
+            <button class="map-btn delete-all-btn" onclick="deleteMarkers()">Delete Markers</button>
+        </div>
+        <section class="markers-container">
+            <form onsubmit="onSubmitForm(event)" class="marker-name">
+                <input class="marker-name-input" type="text" placeholder="Marker's Name">
+                <button class="marker-name-btn" onclick="onAddMarkerName()">Add</button>
+            </form>
+            <ul class="markers"></ul>
+        </section>
+    </main>
+    <article>
+        <h2 class="locationError"></h2>
+    </article>
+    <footer>
+        <p>© All right reserved to the LAWD AND SAVIOR</p>
+        <aside>
+            <a class="footer-link" href="index.html">Go To Homepage</a>
+            <a class="footer-link" href="user-prefs.html">Go To User - Prefs</a>
+        </aside>
+
+    </footer>
     <!-- api key -->
     <!-- AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4 -->
-    <!-- try to put map in another div and put the button inside aswell with position relative -->
-    <div id="map"></div>
-    <button class="my-loc" onclick="onSetCurrLoc()"><img src="img/my-location.png"></button>
-    <article>
-        <h3 class="locationError"></h3>
-    </article>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4&callback=initMap">
         </script>

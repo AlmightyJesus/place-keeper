@@ -100,7 +100,7 @@ function showMarkers() {
 
 function deleteMarkers() {
     if (!confirm('Are you sure you want to delete ALL markers and places?')) return
-    clearMarkers();
+    hideMarkers();
     gSessionMarkers = [];
     gMarkers = []
     renderMarkers()

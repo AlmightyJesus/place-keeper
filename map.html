@@ -17,12 +17,12 @@
         <div class="map-container">
             <div id="map"></div>
             <button class="my-loc" onclick="onSetCurrLoc()"><img src="img/my-location.png"></button>
-            <button class="map-btn toggle-all-btn" onclick="toggleMarkers()">Hide Markers</button>
-            <button class="map-btn delete-all-btn" onclick="deleteMarkers()">Delete Markers</button>
+            <button class="map-btn toggle-all-btn" onclick="onToggleMarkers()">Hide Markers</button>
+            <button class="map-btn remove-all-btn" onclick="onRemoveMarkers()">Delete Markers</button>
         </div>
         <section class="markers-container">
             <form onsubmit="onSubmitForm(event)" class="marker-name">
-                <input class="marker-name-input" type="text" placeholder="Marker's Name">
+                <input class="marker-name-input" maxlength="35" type="text" placeholder="Marker's Name">
                 <button class="marker-name-btn" onclick="onAddMarkerName()">Add</button>
             </form>
             <ul class="markers"></ul>
@@ -37,7 +37,6 @@
             <a class="footer-link" href="index.html">Go To Homepage</a>
             <a class="footer-link" href="user-prefs.html">Go To User - Prefs</a>
         </aside>
-
     </footer>
     <!-- api key -->
     <!-- AIzaSyDgnMOZiDgaxutbZVFqZ01JETGBzkG_Dz4 -->

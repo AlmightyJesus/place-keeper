@@ -4,6 +4,7 @@ var gMap;
 const MARKERS_KEY = 'markers'
 var gMarkers;
 var gSessionMarkers = [];
+var gCurrLoc;
 
 function initMap(lat = 29.55805, lng = 34.94821) {
     gMap = new google.maps.Map(document.getElementById('map'), {
@@ -14,26 +15,27 @@ function initMap(lat = 29.55805, lng = 34.94821) {
         zoom: 10
     });
     gMap.addListener('click', event => {
-        //Todo: change this to a modal/whatever - just not prompt
         var nameInput = document.querySelector('.marker-name-input')
-        nameInput.focus() 
-        setMarker(event.latLng);
+        nameInput.focus()
+        gCurrLoc = event.latLng
     });
 }
 
-function loadMarkersFromStorage() {
-    var markers = loadFromStorage(MARKERS_KEY)
-    if (!markers) markers = []
-    gMarkers = markers
-    if (gMarkers.length > 0) gNextId = gMarkers[gMarkers.length - 1].id + 1;
-
-    saveMarkersToStorage()
+function initMarkers() {
+    if (gMarkers.length === 0) return
+    var myLatLng;
+    var marker;
+    for (var i = 0; i < gMarkers.length; i++) {
+        myLatLng = { lat: gMarkers[i].lat, lng: gMarkers[i].lng }
+        marker = new google.maps.Marker({
+            id: gMarkers[i].id,
+            position: myLatLng,
+            map: gMap,
+            title: gMarkers[i].title
+        });
+        gSessionMarkers.push(marker)
+    }
 }
-
-function saveMarkersToStorage() {
-    saveToStorage(MARKERS_KEY, gMarkers)
-}
-
 
 function onSetCurrLoc() {
     if (!navigator.geolocation) {
@@ -52,38 +54,6 @@ function setCurrLoc(position) {
     setMarker(currLoc, 'My Location')
 }
 
-function handleLocationError(error) {
-    var locationError = document.querySelector(".locationError");
-
-    switch (error.code) {
-        case 0:
-            locationError.innerText = "There was an error while retrieving your location: " + error.message;
-            break;
-        case 1:
-            locationError.innerText = "The user didn't allow this page to retrieve a location.";
-            break;
-        case 2:
-            locationError.innerText = "The browser was unable to determine your location: " + error.message;
-            break;
-        case 3:
-            locationError.innerText = "The browser timed out before retrieving the location.";
-            break;
-    }
-}
-
-function toggleMarkers() {
-    var elBtn = document.querySelector('.toggle-all-btn')
-    if (elBtn.innerText === 'Hide Markers') {
-        hideMarkers()
-        elBtn.innerText = 'Show Markers'
-    }
-    else {
-        showMarkers()
-        elBtn.innerText = 'Hide Markers'
-    }
-
-}
-
 function setMapOnAll(map) {
     for (var i = 0; i < gSessionMarkers.length; i++) {
         gSessionMarkers[i].setMap(map);
@@ -98,12 +68,10 @@ function showMarkers() {
     setMapOnAll(gMap);
 }
 
-function deleteMarkers() {
-    if (!confirm('Are you sure you want to delete ALL markers and places?')) return
+function removeMarkers() {
     hideMarkers();
     gSessionMarkers = [];
     gMarkers = []
-    renderMarkers()
     saveMarkersToStorage()
 }
 
@@ -118,14 +86,13 @@ function setMarker(position, title) {
         return
     }
 
-    if (!title) var title = prompt('Location name?')
+    if (!title) var title = 'No Name'
     var marker = new google.maps.Marker({
         id: gNextId++,
         position,
         map: gMap,
         title
     });
-
     gSessionMarkers.push(marker)
 
     var newMarker = {
@@ -150,13 +117,6 @@ function removeMarker(markerId) {
     saveMarkersToStorage()
 }
 
-function getMarkers() {
-    return gMarkers
-}
-
-function getSessionMarkers() {
-    return gSessionMarkers
-}
 
 function setMapCenter(lat, lng) {
     gMap.setCenter({
@@ -166,18 +126,27 @@ function setMapCenter(lat, lng) {
     gMap.setZoom(16)
 }
 
-function initMarkers() {
-    if (gMarkers.length === 0) return
-    var myLatLng;
-    var marker;
-    for (var i = 0; i < gMarkers.length; i++) {
-        myLatLng = { lat: gMarkers[i].lat, lng: gMarkers[i].lng }
-        marker = new google.maps.Marker({
-            id: gMarkers[i].id,
-            position: myLatLng,
-            map: gMap,
-            title: gMarkers[i].title
-        });
-        gSessionMarkers.push(marker)
-    }
+function loadMarkersFromStorage() {
+    var markers = loadFromStorage(MARKERS_KEY)
+    if (!markers) markers = []
+    gMarkers = markers
+    if (gMarkers.length > 0) gNextId = gMarkers[gMarkers.length - 1].id + 1;
+
+    saveMarkersToStorage()
+}
+
+function saveMarkersToStorage() {
+    saveToStorage(MARKERS_KEY, gMarkers)
+}
+
+function getMarkers() {
+    return gMarkers
+}
+
+function getSessionMarkers() {
+    return gSessionMarkers
+}
+
+function getCurrLoc() {
+    return gCurrLoc
 }

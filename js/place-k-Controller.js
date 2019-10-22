@@ -13,10 +13,15 @@ function initMapPage() {
 function onSetPrefs() {
     var elBcgColor = document.querySelector('.bcg-color').value
     var elTxtColor = document.querySelector('.txt-color').value
+    var elConfirmMsg = document.querySelector('.confirm')
     var userPrefs = {
         bcgColor: elBcgColor,
         txtColor: elTxtColor
     }
+    elConfirmMsg.classList.remove('hide')
+    setInterval(()=>{
+        elConfirmMsg.classList.add('hide')
+    },3000)
     saveColorsToStorage(userPrefs)
 }
 

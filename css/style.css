@@ -232,6 +232,15 @@ legend {
     transform: translate(0px, 800px);
 }
 
+.confirm{
+    color: #303835; ;
+    position: absolute;
+    top: 135px;
+    right: 300px;
+    font-size: 25px;
+    transition: .5s all;
+}
+
 /* ----map page---- */
 
 .map-main {

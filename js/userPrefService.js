@@ -23,3 +23,4 @@ function getAstroForecast() {
     ]
     return forecast[getRandomInt(0, 3)]
 }
+console.log('im new');

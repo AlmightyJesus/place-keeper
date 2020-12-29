@@ -16,20 +16,30 @@
         <fieldset class="top-fieldset">
             <legend class="user-prefs-legend">User Preferences</legend>
             <form onsubmit="onSubmitForm(event)">
-                <label for="bcg-color">Choose background color</label>
-                <input onchange="onInputChange()" class="bcg-color" id="bcg-color" type="color"><br><br>
+                <section class="bcg-color-section">
+                    <label for="bcg-color">Choose background color</label>
+                    <input onchange="onInputChange()" class="bcg-color" id="bcg-color" type="color">
+                </section>
                 <label for="txt-color">Choose text color</label>
-                <input onchange="onInputChange()" class="txt-color" id="txt-color" type="color"> <br><br>
+                <input onchange="onInputChange()" class="txt-color" id="txt-color" type="color">
                 <button class="prefs-btn set-colors-btn" onclick="onSetPrefs()">Set Information</button>
             </form>
         </fieldset>
         <fieldset>
             <legend class="forecast-legend">Get Astological Forcast!</legend>
             <form onsubmit="onSubmitForm(event)">
-                <label for="birth-date">Insert birth date</label>
-                <input class="birth-date" id="birth-date" type="date"> <br><br>
-                <label for="birth-time">Insert birth time</label>
-                <input class="birth-time" id="birth-time" type="time"> <br><br>
+                <section class="birth-info">
+                    <label for="birth-date">Insert birth date</label>
+                    <input class="birth-date" id="birth-date" type="date">
+                    <label for="birth-time">Insert birth time</label>
+                    <input class="birth-time" id="birth-time" type="time">
+                </section>
+                <section>
+                    <label for="email">Insert email Adress</label>
+                    <input required class="email" id="email" type="email" placeholder="name@example.com">
+                    <label for="music">Favorite music volume?</label>
+                    <input class="music" id="music" type="range" min="0" max="100" onchange="showVolume(this.value)"><span class="volume">50</span>
+                </section>
                 <button class="prefs-btn set-birth-info" onclick="onInfoSubmit()">Get Forecast!</button>
             </form>
         </fieldset>
@@ -44,7 +54,7 @@
             <a class="footer-link" href="index.html">Go To Homepage</a>
             <a class="footer-link" href="map.html">Go To Map</a>
         </aside>
-        
+
     </footer>
     <script src="js/utilService.js"></script>
     <script src="js/userPrefService.js"></script>
